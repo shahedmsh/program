@@ -1,4 +1,5 @@
 <html>
+<html>
 <head>
     <style>
         #menu{
@@ -16,7 +17,16 @@
         p{
             font-weight: 600;
             font-size: 20px;
-            color:red;
+        }
+        #num{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            font-weight: 600;
+        }
+        #sub{
+            width: 70px;
+            font-weight: 600;
         }
         
     
@@ -44,7 +54,9 @@
                 <option value="mul">multiple</option>
 
             </select>
-            <button id="sub" onclick="fun();">click</button>
+            <button id="sub" onclick="fun();">Click</button>
+            <br><br>
+            <input type="text" id="num" />
         </div> 
     </div>
     <script>
@@ -52,18 +64,25 @@
         let val=parseFloat(document.getElementById('text1').value);
         let val2=parseFloat(document.getElementById('text2').value);
         let oper= document.getElementById('operator').value;
+        
           
             if(oper=='ad'){
-                document.getElementById('menu').innerHTML=val+val2;
+              parseFloat(document.getElementById('num').value=val+val2);
+              
             }if(oper=='min'){
-                document.getElementById('menu').innerHTML=val-val2;
+                document.getElementById('num').value=val-val2;
             }if(oper=='dev'){
-                document.getElementById('menu').innerHTML=val/val2;
+                document.getElementById('num').value=val/val2;
             }if(oper=='mul'){
-                document.getElementById('menu').innerHTML=val*val2;
-            }else{
-                return "type number";
+                document.getElementById('num').value=val*val2;
+            }if(!/^[0-9]+$/.test(val)){
+               document.getElementById('num').value="Number only";
+            }if(!/^[0-9]+$/.test(val2)){
+                document.getElementById('num').value="Number only";
             }
+             
+            
+            
             
             
             
